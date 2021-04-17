@@ -1,10 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <curl/curl.h>
 
-int main(void)
-{
+int main(void){
     CURL* curl;
     CURLcode res;
+    char postdata[100], name[20], project[40];
+    printf("Enter your name: ");
+    scanf("%s", name);
+    printf("Enter your project: ");
+    scanf("%s", project);
+    sprintf(postdata, "name=%s&project=%s", name, project);
 
     /* In windows, this will init the winsock stuff */
     curl_global_init(CURL_GLOBAL_ALL);
@@ -12,12 +18,10 @@ int main(void)
     /* get a curl handle */
     curl = curl_easy_init();
     if (curl) {
-        /* First set the URL that is about to receive our POST. This URL can
-           just as well be a https:// URL if that is what should receive the
-           data. */
-        curl_easy_setopt(curl, CURLOPT_URL, "http://postit.example.com/moo.cgi");
+
+        curl_easy_setopt(curl, CURLOPT_URL, "http://www.cc.puv.fi/~e2001875/testPost.php");
         /* Now specify the POST data */
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "name=daniel&project=curl");
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, postdata);
 
         /* Perform the request, res will get the return code */
         res = curl_easy_perform(curl);
