@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\post\sendData.php">
+    <None Include="sendData.php">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

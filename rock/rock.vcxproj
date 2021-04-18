@@ -146,7 +146,7 @@
     <ClInclude Include="rock.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\post\sendData.php" />
+    <None Include="sendData.php" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
